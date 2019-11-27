@@ -1,5 +1,6 @@
 # use latest version of node
-FROM node:alpine
+# service is under development
+FROM node:10
 
 # set working directory
 WORKDIR /dist
@@ -8,12 +9,8 @@ WORKDIR /dist
 COPY package*.json ./
 
 #installing dependencies
-RUN apk add --no-cache --virtual .gyp \
-        python \
-        make \
-        g++ \
-    && npm install \
-    && apk del .gyp
+RUN npm install
+
 # bundle source code
 COPY . .
 
