@@ -10,7 +10,7 @@
 		"start": "cd dist && node server.js",
 		"dev": "npm run postinstall && npm start",
 		"watch": "babel-watch src/server.js",
-		"test": "npm run postinstall && mocha --timeout 10000",
+		"test": "npm run postinstall && mocha --timeout 10000 --exit",
 		"build": "npm run postinstall"
 	},
 	"repository": {

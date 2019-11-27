@@ -1,5 +1,5 @@
 # use latest version of node
-FROM mhart/alpine-node:latest
+FROM node:alpine
 
 # set working directory
 WORKDIR /dist
@@ -8,8 +8,12 @@ WORKDIR /dist
 COPY package*.json ./
 
 #installing dependencies
-RUN npm install
-
+RUN apk add --no-cache --virtual .gyp \
+        python \
+        make \
+        g++ \
+    && npm install \
+    && apk del .gyp
 # bundle source code
 COPY . .
 
