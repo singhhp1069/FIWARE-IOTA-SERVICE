@@ -95,8 +95,7 @@ import { isUrl , isNotEmpty, isModeValid } from '../utils/index';
 			res.status(HttpStatus.BAD_REQUEST).send({error: 'in restricted mode, secret can not be empty'});
 		}	
 		fetchMamTransaction(hash, mode, secret, (result) => {
-			console.log('result' + result);
-			res.status(HttpStatus.OK).send(decodeMessage(result));
+			res.status(HttpStatus.OK).send({result: decodeMessage(result)});
 		});
 	}
 

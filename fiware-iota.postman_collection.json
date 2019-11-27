@@ -1,0 +1,215 @@
+{
+	"info": {
+		"_postman_id": "74c0d4a1-d6b4-4d21-b813-590e29e1a3eb",
+		"name": "fiware-iota",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:4000/status",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:4000/status",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"status"
+					]
+				},
+				"description": "get the status of the node"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:4000/provider",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"provider\": \"https://nodes.devnet.thetangle.org:443\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:4000/provider",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"provider"
+					]
+				},
+				"description": "set a new provider instead of default"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:4000/zmqprovider",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"provider\": \"tcp://zmq.devnet.iota.org:5556\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:4000/zmqprovider",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"zmqprovider"
+					]
+				},
+				"description": "set new zmqprovider instead of default"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:4000/transaction",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"address\": \"ETJF9MZSDYTESOBJUANBCIYEVREVDNPNEJWEZDSBPUKTGOZKBNFD9DYQACJZW9EGQQHANBDGHJNUXTYVD\",\n\t\"seed\": \"GUVMYGYLYVSKJ9AOPWJXB9V9WXEBUREGEDKJUPPMUQ9SXCYFGFXACEODXUVILVBMUZUDEJFPDSRXFSGNN\",\n\t\"data\": {\n\t\t\t\"message\" : \"test transaction\"\n\t\t}\n}"
+				},
+				"url": {
+					"raw": "http://localhost:4000/transaction",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"transaction"
+					]
+				},
+				"description": "create a new transaction"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:4000/transaction/ETJF9MZSDYTESOBJUANBCIYEVREVDNPNEJWEZDSBPUKTGOZKBNFD9DYQACJZW9EGQQHANBDGHJNUXTYVD",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:4000/transaction/ETJF9MZSDYTESOBJUANBCIYEVREVDNPNEJWEZDSBPUKTGOZKBNFD9DYQACJZW9EGQQHANBDGHJNUXTYVD",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"transaction",
+						"ETJF9MZSDYTESOBJUANBCIYEVREVDNPNEJWEZDSBPUKTGOZKBNFD9DYQACJZW9EGQQHANBDGHJNUXTYVD"
+					]
+				},
+				"description": "fetch the transaction per address"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:4000/mam/fetch",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"hash\":\"QQUTOYQDKWGEOSNDERIUTLNFJLKXKPGMZVDJJJNPMSXSIYHJDUUMZUEI9GGQSFQJD9GRVGCMNDDATPWDN\",\n\t\"mode\": \"restricted\",\n\t\"secret\": \"DONTSHARETHIS\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:4000/mam/fetch",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"mam",
+						"fetch"
+					]
+				},
+				"description": "fetch the mam transaction"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:4000/mam",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"data\": \"tet\",\n\t\"mode\": \"restricted\",\n\t\"secret\": \"te\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:4000/mam",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"mam"
+					]
+				},
+				"description": "create a mam request to upload the data"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

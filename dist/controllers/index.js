@@ -98,8 +98,7 @@ const fetchExistingMamTransaction = async (req, res) => {
 		res.status(HttpStatus.BAD_REQUEST).send({ error: 'in restricted mode, secret can not be empty' });
 	}
 	(0, _fiwareIota.fetchMamTransaction)(hash, mode, secret, result => {
-		console.log('result' + result);
-		res.status(HttpStatus.OK).send((0, _fiwareIota.decodeMessage)(result));
+		res.status(HttpStatus.OK).send({ result: (0, _fiwareIota.decodeMessage)(result) });
 	});
 };
 
